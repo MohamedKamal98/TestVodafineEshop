@@ -16,7 +16,7 @@ public class HomePage extends BasePage
 
     public void pressEnglishBtn()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(englishBtn));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(englishBtn));
         driver.findElement(englishBtn).click();
     }
 }

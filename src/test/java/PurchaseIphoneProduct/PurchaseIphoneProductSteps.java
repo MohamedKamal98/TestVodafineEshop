@@ -1,10 +1,12 @@
 package PurchaseIphoneProduct;
 
 import basePackage.BaseTest;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.HomePage;
+import utilities.DriverSetup;
 
 public class PurchaseIphoneProductSteps extends BaseTest
 {
@@ -17,23 +19,48 @@ public class PurchaseIphoneProductSteps extends BaseTest
         homePage.pressEnglishBtn();
     }
      */
-    @Given("^first$")
-    public void first()
+
+
+    @Given("User opens vodafone eshop Home Page")
+    public void userOpensVodafoneEshopHomePage()
     {
+        this.driver = DriverSetup.DriverInitiate("chrome");
         homePage = new HomePage(this.driver);
-        System.out.println("sajgiiasufass");
-        homePage.pressEnglishBtn();
     }
-    @When("^second$")
-    public void second()
+
+    @And("User Choose English Language")
+    public void userChooseEnglishLanguage()
     {
         homePage.pressEnglishBtn();
     }
 
-    @Then("^third$")
-    public void third()
+    @When("User selects iphone products")
+    public void userSelectsIphoneProducts()
     {
-        homePage.pressEnglishBtn();
     }
 
+    @And("User added a product to basket")
+    public void userAddedAProductToBasket()
+    {
+    }
+
+    @And("User Checkout")
+    public void userCheckout()
+    {
+    }
+
+    @And("User entered Address")
+    public void userEnteredAddress()
+    {
+    }
+
+    @And("User entered personal info")
+    public void userEnteredPersonalInfo()
+    {
+    }
+
+    @Then("Product is placed successfully")
+    public void productIsPlacedSuccessfully()
+    {
+    }
 }

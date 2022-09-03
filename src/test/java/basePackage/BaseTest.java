@@ -12,7 +12,7 @@ public class BaseTest extends AbstractTestNGCucumberTests
     @BeforeClass
     public void invokeBrowser()
     {
-        this.driver = DriverSetup.DriverInitiate("chrome");
+        //this.driver = DriverSetup.DriverInitiate("chrome");
     }
     @AfterClass
     public void tearDown()
