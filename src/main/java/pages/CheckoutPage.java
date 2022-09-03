@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -22,6 +23,9 @@ public class CheckoutPage extends BasePage
     //private By continueBtn = By.xpath("//button[@class=\"btn checkout-btn btn-red delievry--btn--checkout\"]");
     private By continueBtn = By.xpath("//*[@id=\"checkout-deliveryAdd\"]/div[3]/button");
 
+    private By errorMessage = By.xpath("//*[@id=\"collapseTwo\"]/form/div/div/div[1]/div[1]/app-alert/div/div");
+    private By contBtn = By.xpath("//*[@id=\"shippingAddressContinue\"]");
+
     public CheckoutPage(WebDriver driver)
     {
         super(driver);
@@ -30,9 +34,6 @@ public class CheckoutPage extends BasePage
     {
         selectCity();
         selectRegion();
-    }
-    public void fillUserInfo()
-    {
         pressDeliverToMyAddressBtn();
         writeStreetNameTxt();
         writeBuildingNumberTxt();
@@ -79,7 +80,22 @@ public class CheckoutPage extends BasePage
     }
     private void pressContinueBtn()
     {
+        wait.until(ExpectedConditions.elementToBeClickable(continueBtn));
         wait.until(ExpectedConditions.visibilityOfElementLocated(continueBtn));
-        driver.findElement(continueBtn).click();
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click()",  driver.findElement(continueBtn));
+        //driver.findElement(continueBtn).click();
+    }
+    public void pressContBtn()
+    {
+        wait.until(ExpectedConditions.elementToBeClickable(contBtn));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(contBtn));
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click()",  driver.findElement(contBtn));
+    }
+    public String getErrorMessageTxt()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage));
+        return driver.findElement(errorMessage).getText();
     }
 }

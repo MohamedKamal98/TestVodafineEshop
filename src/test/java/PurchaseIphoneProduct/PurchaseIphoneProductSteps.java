@@ -67,16 +67,18 @@ public class PurchaseIphoneProductSteps extends BaseTest
         checkoutPage.fillUserAddress();
     }
 
-    @And("User entered personal info")
-    public void userEnteredPersonalInfo()
+
+    @And("User click continue with empty Full Name")
+    public void userClickContinueWithEmptyFullName()
     {
-        checkoutPage.fillUserInfo();
+        checkoutPage.pressContBtn();
     }
 
-    @Then("Product is placed successfully")
-    public void productIsPlacedSuccessfully()
+    @Then("Error Message appears with text {string}")
+    public void errorMessageAppearsWithText(String arg0)
     {
+        Assert.assertEquals(checkoutPage.getErrorMessageTxt(),arg0);
+        System.out.println(arg0);
+        System.out.println(checkoutPage.getErrorMessageTxt());
     }
-
-
 }
