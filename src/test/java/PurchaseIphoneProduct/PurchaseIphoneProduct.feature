@@ -3,6 +3,7 @@ Feature: Validate purchasing an iphone product
     Given User opens vodafone eshop Home Page
     And User Choose English Language
     When User selects iphone products
+    And User select a product
     And User added a product to basket
     And User Checkout
     And User entered Address

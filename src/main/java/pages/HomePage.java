@@ -11,12 +11,17 @@ public class HomePage extends BasePage
     {
         super(driver);
     }
-    private By englishBtn = By.xpath("//div[@class=\"tabs fluid headerSecondryColor tab-container\"][1]//span");
-
+    private By englishBtn = By.xpath("//div[@class=\"tabs fluid headerSecondryColor tab-container\"]//span[@class=\"lang\"]");
+    private By iphoneBrandBtn = By.xpath("//ul[@class=\"brandContainer-brands-list utag--brands\"]//a[@href=\"/shop/shopByBrand/Apple\"]");
 
     public void pressEnglishBtn()
     {
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(englishBtn));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(englishBtn));
         driver.findElement(englishBtn).click();
+    }
+    public void pressIphoneBrandBtn()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(iphoneBrandBtn));
+        driver.findElement(iphoneBrandBtn).click();
     }
 }
