@@ -6,9 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.AppleWatchNikeSEGPS44mmPage;
-import pages.HomePage;
-import pages.IphoneProductsPage;
+import pages.*;
 import utilities.DriverSetup;
 
 public class PurchaseIphoneProductSteps extends BaseTest
@@ -16,6 +14,8 @@ public class PurchaseIphoneProductSteps extends BaseTest
     HomePage homePage;
     IphoneProductsPage iphoneProductsPage;
     AppleWatchNikeSEGPS44mmPage appleWatchNikeSEGPS44mmPage;
+    ShoppingCartPage shoppingCartPage;
+    CheckoutPage checkoutPage;
 
 
     @Given("User opens vodafone eshop Home Page")
@@ -56,16 +56,21 @@ public class PurchaseIphoneProductSteps extends BaseTest
     @And("User Checkout")
     public void userCheckout()
     {
+        shoppingCartPage = new ShoppingCartPage(this.driver);
+        shoppingCartPage.pressCheckoutBtn();
     }
 
     @And("User entered Address")
     public void userEnteredAddress()
     {
+        checkoutPage = new CheckoutPage(this.driver);
+        checkoutPage.fillUserAddress();
     }
 
     @And("User entered personal info")
     public void userEnteredPersonalInfo()
     {
+        checkoutPage.fillUserInfo();
     }
 
     @Then("Product is placed successfully")
