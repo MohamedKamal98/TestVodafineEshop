@@ -30,7 +30,7 @@ public class CheckoutPage extends BasePage
     {
         super(driver);
     }
-    public void fillUserAddress()
+    public void fillUserAddress() throws InterruptedException
     {
         selectCity();
         selectRegion();
@@ -41,14 +41,16 @@ public class CheckoutPage extends BasePage
         writeApartmentNameTxt();
         pressContinueBtn();
     }
-    private void selectCity()
+    private void selectCity() throws InterruptedException
     {
+        Thread.sleep(7000);
         wait.until(ExpectedConditions.presenceOfNestedElementsLocatedBy(cityDrp,By.tagName("option")));
         city = new Select(driver.findElement(cityDrp));
         city.selectByValue(cityValue);
     }
-    private void selectRegion()
+    private void selectRegion() throws InterruptedException
     {
+        Thread.sleep(7000);
         wait.until(ExpectedConditions.visibilityOfElementLocated(regionDrp));
         region = new Select(driver.findElement(regionDrp));
         region.selectByVisibleText(regionTxt);

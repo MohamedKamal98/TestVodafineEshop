@@ -23,7 +23,8 @@ public class PurchaseIphoneProductSteps extends BaseTest
     {
        // this.driver = DriverSetup.DriverInitiate("chrome");
         homePage = new HomePage(driver);
-        Assert.assertEquals(driver.getTitle(),"Vodafone Shop");
+        //Assert.assertEquals(driver.getTitle(),"Vodafone Shop");
+        softAssert.assertEquals(driver.getTitle(),"Vodafone Shop");
     }
 
     @And("User Choose English Language")
@@ -61,7 +62,7 @@ public class PurchaseIphoneProductSteps extends BaseTest
     }
 
     @And("User entered Address")
-    public void userEnteredAddress()
+    public void userEnteredAddress() throws InterruptedException
     {
         checkoutPage = new CheckoutPage(this.driver);
         checkoutPage.fillUserAddress();
@@ -80,5 +81,6 @@ public class PurchaseIphoneProductSteps extends BaseTest
         Assert.assertEquals(checkoutPage.getErrorMessageTxt(),arg0);
         System.out.println(arg0);
         System.out.println(checkoutPage.getErrorMessageTxt());
+        softAssert.assertAll();
     }
 }

@@ -7,7 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AppleWatchNikeSEGPS44mmPage extends BasePage
 {
     //private By addToBasketBtn = By.xpath("//button[@class=\"btn btn-red btn-block fontLightEnAr\"]");
-    private By addToBasketBtn = By.xpath("/html/body/app-root/app-product-details/div/div[1]/div/div[3]/div/div/div[2]/button");
+    //private By addToBasketBtn = By.xpath("/html/body/app-root/app-product-details/div/div[1]/div/div[3]/div/div/div[2]/button");
+    private By addToBasketBtn = By.xpath("//div[@class='productDetails-paymentOptions-container-content']//button[text()='Add to basket']");
     private By productTitle = By.xpath("//h1[@id=\"productNameHeading\"]");
     public AppleWatchNikeSEGPS44mmPage(WebDriver driver)
     {
