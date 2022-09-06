@@ -11,8 +11,9 @@ public class HomePage extends BasePage
     {
         super(driver);
     }
-    private By englishBtn = By.xpath("//div[@class=\"tabs fluid headerSecondryColor tab-container\"]//span[@class=\"lang\"]");
-    private By iphoneBrandBtn = By.xpath("//ul[@class=\"brandContainer-brands-list utag--brands\"]//a[@href=\"/shop/shopByBrand/Apple\"]");
+    //private By englishBtn = By.xpath("//div[@class=\"tabs fluid headerSecondryColor tab-container\"]//span[@class=\"lang\"]");
+    private By englishBtn = By.xpath("//span[text()='English']");
+    private By iphoneBrandBtn = By.xpath("//a[@href=\"/shop/shopByBrand/Apple\"]");
 
     public void pressEnglishBtn()
     {

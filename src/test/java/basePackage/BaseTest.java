@@ -8,11 +8,12 @@ import utilities.DriverSetup;
 
 public class BaseTest extends AbstractTestNGCucumberTests
 {
-    public WebDriver driver;
+    public static WebDriver driver;
     @BeforeClass
     public void invokeBrowser()
     {
-        //this.driver = DriverSetup.DriverInitiate("chrome");
+        //driver = DriverSetup.DriverInitiate("chrome");
+        driver =  DriverSetup.chromeDriverInitiate();
     }
     @AfterClass
     public void tearDown()

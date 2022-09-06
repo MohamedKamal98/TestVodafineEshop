@@ -21,8 +21,8 @@ public class PurchaseIphoneProductSteps extends BaseTest
     @Given("User opens vodafone eshop Home Page")
     public void userOpensVodafoneEshopHomePage()
     {
-        this.driver = DriverSetup.DriverInitiate("chrome");
-        homePage = new HomePage(this.driver);
+       // this.driver = DriverSetup.DriverInitiate("chrome");
+        homePage = new HomePage(driver);
         Assert.assertEquals(driver.getTitle(),"Vodafone Shop");
     }
 

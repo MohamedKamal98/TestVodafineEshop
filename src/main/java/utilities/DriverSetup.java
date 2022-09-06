@@ -7,6 +7,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverSetup
 {
     private static String url = "https://eshop.vodafone.com.eg/eshop/";
+    public static WebDriver chromeDriverInitiate()
+    {
+        System.setProperty("webdriver.chrome.driver",
+                "resources/chromedriver.exe");
+        /*
+        System.setProperty("webdriver.chrome.driver",
+                System.getProperty("user.dir") + "resources/chromedriver.exe");
+
+         */
+        WebDriver driver=  new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get(url);
+        return driver;
+    }
     public static WebDriver DriverInitiate(String browser)
     {
         WebDriver driver = null;
